@@ -1,0 +1,54 @@
+<div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-sm">
+  <div class="modal-content">
+    <div class="modal-body p-0">
+      <div class="card border-0 mb-0 card-secondary" header-classes="bg-white pb-5" body-classes="px-lg-5 py-lg-5">
+        <div class="card-body">
+          <form role="form" id="expensesForm" name="expensesForm" novalidate>
+            <div class="row">
+              <div class="col-md-12 text-left">
+                <div class="form-group">
+                  <label class="control-label"> Category </label>
+                  <select id="category" name="category"
+                      ng-options="category.name for category in vmExpenses.categoryList track by category.id" 
+                      ng-class="{ 'error' : expensesForm.category.$invalid && !expensesForm.category.$pristine && (expensesForm.category.$dirty || expensesForm.category.$submitted)}"
+                      required ng-model="vmExpenses.expenses.category" class="form-control">
+                    <option value="">Category</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 text-left">
+                <div class="form-group">
+                  <label class="control-label"> Description </label>
+                  <input placeholder="Description" class="form-control"  id="description" name="description"
+                  required
+                    ng-model="vmExpenses.expenses.description"
+                    ng-class="{ 'error' : expensesForm.description.$invalid && !expensesForm.description.$pristine && (expensesForm.description.$dirty || expensesForm.description.$submitted)}">
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 text-left">
+                <div class="form-group">
+                  <label class="control-label"> Price </label>
+                  <input placeholder="Price" type="number" class="form-control"  id="price" name="price"
+                  required
+                    
+                    ng-model="vmExpenses.expenses.price"
+                    ng-class="{ 'error' : expensesForm.price.$invalid && !expensesForm.price.$pristine && (expensesForm.price.$dirty || expensesForm.price.$submitted)}">
+
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" ng-click="vmExpenses.closeModal(false)"> Close</button>
+          <button type="button" class="btn btn-info" ng-click="vmExpenses.AddOrUpdate(expensesForm)"> Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

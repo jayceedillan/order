@@ -1,0 +1,86 @@
+<div class="content">
+  <div class="wrapper">
+     <div class="main-panel">
+        <div class="content">
+           <div class="row">
+              <div class="col-12">
+                 <div class="card">
+                    <div class="card-header text-left">
+                       <h4 class="card-title">Expenses</h4>
+                       <button type="button" class="btn btn-primary"ng-click="vmOrder.openModal()" >Add Expenses</button>
+                    </div>
+                    
+                    <div class="card-body">
+                       <div class="table-responsive text-left">
+                          <table class="table tablesorter" data-toggle="table">
+                             <thead class="text-primary">
+                                <tr>
+                                 <th sort="'id'"  sort-options="vmOrder.pagination"
+                                    on-sort="vmOrder.pageChanged()"> 
+                                    ID 
+                                    <div class="up-down d-inline-block"></div>
+                                 </th>
+                                 <th sort="'category'"  sort-options="vmOrder.pagination"
+                                    on-sort="vmOrder.pageChanged()"> 
+                                    Category 
+                                    <div class="up-down d-inline-block"></div>
+                                 </th>
+                                 <th sort="'description'"  sort-options="vmOrder.pagination"
+                                    on-sort="vmOrder.pageChanged()"> 
+                                    Description 
+                                    <div class="up-down d-inline-block"></div>
+                                 </th>
+                                 <th sort="'price'"  sort-options="vmOrder.pagination"
+                                    on-sort="vmOrder.pageChanged()"> 
+                                    Price 
+                                    <div class="up-down d-inline-block"></div>
+                                 </th>
+                                 <th sort="'dateCreated'"  sort-options="vmOrder.pagination"
+                                    on-sort="vmOrder.pageChanged()"> 
+                                    Date Created 
+                                    <div class="up-down d-inline-block"></div>
+                                 </th>
+                                 <th class="text-right">Actions </th>
+                                </tr>
+                             </thead>
+                             <tbody >
+                                <tr ng-repeat="item in vmOrder.orderList.orders track by item.id">
+                                   <td>
+                                      {{ item.id }}
+                                   </td>
+                                   <td>
+                                    {{ item.category.name }}
+                                   </td>
+                                   <td>
+                                    {{ item.description }}
+                                 </td>
+                                 <td>
+                                    {{ item.price }}
+                                 </td>
+                                 <td>
+                                    {{ item.dateCreated }}
+                                 </td>
+                                 
+                                   <td class="td-actions text-right">
+                                     <button type="button" class="btn btn-icon btn-fab btn-success btn-sm" ng-click="vmOrder.openModal(item)">
+                                       <i class="tim-icons icon-pencil"></i>
+                                     </button> <button type="button" class="btn btn-icon btn-fab btn-danger btn-sm" ng-click="vmOrder.deleteOrder(item.id)"> 
+                                       <i class="tim-icons icon-simple-remove"></i>
+                                      </button>
+                                  </td>
+                                   
+                                </tr>
+                             </tbody>
+                          </table>
+                       </div>
+                    </div>
+                    
+                 </div>
+              </div>
+             
+           </div>
+        </div>
+      
+     </div>
+  </div>
+</div>
