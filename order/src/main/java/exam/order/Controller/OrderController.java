@@ -44,10 +44,11 @@ public class OrderController {
             // TODO: handle exception
         }
 
-        Map<String, Object> empMap = new HashMap<>();
-        empMap.put("orders", orderRepo);
-        empMap.put("totalItems", totalItems);
-        return empMap;
+        Map<String, Object> orderMap = new HashMap<>();
+        orderMap.put("orders", orderRepo);
+        orderMap.put("totalItems", totalItems);
+        
+        return orderMap;
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
