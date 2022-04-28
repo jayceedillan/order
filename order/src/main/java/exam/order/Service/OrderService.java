@@ -32,10 +32,10 @@ public class OrderService {
 			Pageable pageable;
 
 			if (pagination.getOrder().equals("ASC")) {
-				pageable = PageRequest.of(pagination.getPageNumber() - 1, 100,
+				pageable = PageRequest.of(pagination.getPageNumber() - 1, pagination.getOffset(),
 						Sort.by(pagination.getSortBy()));
 			} else {
-				pageable = PageRequest.of(pagination.getPageNumber() - 1, 100,
+				pageable = PageRequest.of(pagination.getPageNumber() - 1, pagination.getOffset(),
 						Sort.by(pagination.getSortBy()).descending());
 			}
 
